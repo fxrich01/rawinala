@@ -16,7 +16,7 @@ export function Footer() {
           {/* Column 1: Institutional Identity */}
           <div className="lg:col-span-5">
             <Link href="/" className="inline-flex items-center gap-4">
-              <BrandCrest variant="light" className="h-14 w-auto shrink-0" />
+              <BrandCrest variant="light" className="h-16 w-auto shrink-0" />
               <div className="border-s border-alabaster/15 ps-4">
                 <div className="font-editorial text-xl font-semibold tracking-[0.06em] text-alabaster">
                   <OfficialOrgName uppercase />

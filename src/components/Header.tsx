@@ -79,7 +79,7 @@ export function Header() {
           >
             <BrandCrest
               variant="dark"
-              className="h-10 w-auto shrink-0 transition-transform duration-300 group-hover:scale-105 sm:h-12"
+              className="h-11 w-auto shrink-0 transition-transform duration-300 group-hover:scale-105 sm:h-[54px]"
             />
             <div className="min-w-0 border-s border-hairline ps-3">
               <div className="font-editorial text-base font-bold leading-none tracking-[0.06em] text-navy sm:text-lg lg:text-[19px]">
