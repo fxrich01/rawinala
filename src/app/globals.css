@@ -1,0 +1,160 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-alabaster: #FAF8F3;
+  --color-sand: #F2EDE4;
+  --color-sand-deep: #E7DFD1;
+  --color-navy: #0B192C;
+  --color-navy-soft: #152842;
+  --color-navy-muted: #243A57;
+  --color-saffron: #D49A2A;
+  --color-saffron-dark: #B57F1B;
+  --color-saffron-soft: #F3E5C5;
+  --color-terracotta: #B85D3B;
+  --color-terracotta-dark: #97482B;
+  --color-ink: #16202C;
+  --color-slate-editorial: #4A5565;
+  --color-hairline: #DED7C8;
+
+  --font-serif: var(--font-cormorant), "Noto Serif SC", "Noto Serif JP", "Noto Serif KR", Georgia, Cambria, "Times New Roman", serif;
+  --font-sans: var(--font-jakarta), "Noto Sans SC", "Noto Sans JP", "Noto Sans KR", "Noto Sans Arabic", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+/* =========================================================================
+   EDITORIAL BASE & TYPOGRAPHY
+   ========================================================================= */
+html {
+  scroll-behavior: smooth;
+  background-color: #FAF8F3;
+  color: #16202C;
+  top: 0px !important;
+}
+
+body {
+  background-color: #FAF8F3;
+  color: #16202C;
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: clip;
+  top: 0px !important;
+  position: static !important;
+  margin-top: 0px !important;
+}
+
+/* Editorial selection color */
+::selection {
+  background-color: rgba(212, 154, 42, 0.24);
+  color: #0B192C;
+}
+
+/* Subtle archival paper texture for hero and heritage surfaces */
+.editorial-grain {
+  background-image: radial-gradient(rgba(11, 25, 44, 0.035) 1px, transparent 0);
+  background-size: 24px 24px;
+}
+
+.editorial-grid-dark {
+  background-image:
+    linear-gradient(to right, rgba(212, 154, 42, 0.07) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(212, 154, 42, 0.07) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+
+/* Elegant serif display sizing */
+.font-editorial {
+  font-family: var(--font-serif);
+}
+
+/* =========================================================================
+   GOOGLE TRANSLATE UI SUPPRESSION (CLEAN CORPORATE / STATE APPEARANCE)
+   ========================================================================= */
+#google_translate_element {
+  position: fixed !important;
+  left: -9999px !important;
+  top: -9999px !important;
+  width: 1px !important;
+  height: 1px !important;
+  overflow: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+/* Hide top Google Translate banner / toolbar & iframes */
+.goog-te-banner-frame,
+.goog-te-banner-frame.skiptranslate,
+iframe.goog-te-banner-frame,
+iframe.skiptranslate,
+.VIpgJd-ZVi9od-ORHb-OEVmcd,
+.VIpgJd-ZVi9od-ORHb-OEVmcd.skiptranslate,
+.VIpgJd-ZVi9od-aZ2wEe-wOHMyf,
+.VIpgJd-ZVi9od-aZ2wEe-OiiCO,
+.VIpgJd-ZVi9od-l4eHX-hSRGPd,
+.goog-te-gadget-icon,
+.goog-logo-link,
+.goog-te-spinner-pos {
+  display: none !important;
+  visibility: hidden !important;
+  height: 0 !important;
+  width: 0 !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+/* Hide Google Translate hover tooltip & original text highlight box */
+#goog-gt-tt,
+.goog-te-balloon-frame,
+.goog-tooltip,
+.goog-tooltip:hover,
+div#goog-gt-,
+.VIpgJd-yAWNEb-L7lbkb {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+.goog-text-highlight,
+.VIpgJd-yAWNEb-VIpgJd-fmcmS-sn54Q {
+  background-color: transparent !important;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  color: inherit !important;
+}
+
+/* Prevent Google Translate from shifting body downwards */
+body > .skiptranslate {
+  display: none !important;
+}
+
+html.translated-ltr body,
+html.translated-rtl body {
+  top: 0px !important;
+  margin-top: 0px !important;
+}
+
+/* Keep Google Translate's <font> wrappers seamlessly inheriting styling */
+font {
+  background-color: transparent !important;
+  box-shadow: none !important;
+}
+
+/* =========================================================================
+   RTL (ARABIC) & CJK RESILIENT LAYOUT REFINEMENTS
+   ========================================================================= */
+[dir="rtl"] .rtl-flip {
+  transform: scaleX(-1);
+}
+
+[dir="rtl"] body {
+  letter-spacing: 0 !important;
+}
+
+[dir="rtl"] .tracking-widest,
+[dir="rtl"] .tracking-wider,
+[dir="rtl"] .tracking-\[0\.2em\],
+[dir="rtl"] .tracking-\[0\.22em\],
+[dir="rtl"] .tracking-\[0\.18em\] {
+  letter-spacing: 0 !important;
+}
