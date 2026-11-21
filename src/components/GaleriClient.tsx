@@ -7,28 +7,34 @@ import {
   Instagram,
   MapPin,
   Maximize2,
-  X,
 } from "lucide-react";
 import {
   GALLERY_ALBUMS,
   GALLERY_ITEMS,
   GalleryAlbum,
-  GalleryItem,
   INSTAGRAM_POSTS,
 } from "@/data/siteData";
 import { EditorialPhotoPlaceholder } from "@/components/EditorialPhotoPlaceholder";
+import { EditorialLightbox } from "@/components/EditorialLightbox";
 import { OfficialOrgName, ProtectedText } from "@/components/ProtectedText";
 
 export function GaleriClient() {
   const [selectedAlbum, setSelectedAlbum] = useState<
     "Semua Album" | GalleryAlbum
   >("Semua Album");
-  const [activeLightbox, setActiveLightbox] = useState<GalleryItem | null>(null);
+  const [activeLightboxIndex, setActiveLightboxIndex] = useState<number | null>(
+    null
+  );
 
   const filteredItems = useMemo(() => {
     if (selectedAlbum === "Semua Album") return GALLERY_ITEMS;
     return GALLERY_ITEMS.filter((item) => item.album === selectedAlbum);
   }, [selectedAlbum]);
+
+  const handleSelectAlbum = (album: "Semua Album" | GalleryAlbum) => {
+    setSelectedAlbum(album);
+    setActiveLightboxIndex(null);
+  };
 
   return (
     <>
@@ -52,7 +58,7 @@ export function GaleriClient() {
                     type="button"
                     role="tab"
                     aria-selected={active}
-                    onClick={() => setSelectedAlbum(album)}
+                    onClick={() => handleSelectAlbum(album)}
                     className={`rounded-sm border px-4 py-2 text-xs font-semibold tracking-wide transition-all ${
                       active
                         ? "border-navy bg-navy text-alabaster"
@@ -65,16 +71,26 @@ export function GaleriClient() {
               })}
             </div>
             <p className="text-xs font-medium text-slate-editorial">
-              {filteredItems.length} arsip dokumentasi
+              {filteredItems.length} arsip dokumentasi • Klik foto untuk mode
+              Lightbox
             </p>
           </div>
 
           {/* Curated Archive Grid */}
           <div className="mt-10 grid grid-cols-1 gap-7 md:grid-cols-2 lg:grid-cols-3">
-            {filteredItems.map((item) => (
+            {filteredItems.map((item, idx) => (
               <div
                 key={item.id}
-                className="group flex flex-col rounded-sm border border-hairline bg-sand/35 p-4 transition-all duration-300 hover:border-saffron hover:bg-sand/75"
+                role="button"
+                tabIndex={0}
+                onClick={() => setActiveLightboxIndex(idx)}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter" || e.key === " ") {
+                    e.preventDefault();
+                    setActiveLightboxIndex(idx);
+                  }
+                }}
+                className="group flex cursor-pointer flex-col rounded-sm border border-hairline bg-sand/35 p-4 text-start transition-all duration-300 hover:-translate-y-1 hover:border-saffron hover:bg-sand/80 hover:shadow-lg hover:shadow-navy/8 focus:outline-none focus:ring-2 focus:ring-saffron"
               >
                 <div className="relative">
                   <EditorialPhotoPlaceholder
@@ -85,15 +101,10 @@ export function GaleriClient() {
                     tone={item.tone}
                     compact
                   />
-                  <button
-                    type="button"
-                    onClick={() => setActiveLightbox(item)}
-                    aria-label={`Perbesar detail ${item.title}`}
-                    className="absolute bottom-3 end-3 z-20 inline-flex items-center gap-1.5 rounded-sm border border-saffron/60 bg-navy/90 px-2.5 py-1.5 text-[10px] font-semibold tracking-wider uppercase text-alabaster opacity-95 shadow transition-colors hover:bg-saffron hover:text-navy"
-                  >
+                  <span className="absolute bottom-3 end-3 z-20 inline-flex items-center gap-1.5 rounded-sm border border-saffron/60 bg-navy/90 px-2.5 py-1.5 text-[10px] font-semibold tracking-wider uppercase text-alabaster opacity-95 shadow transition-colors group-hover:bg-saffron group-hover:text-navy">
                     <Maximize2 className="h-3 w-3" />
                     <span>Pratinjau</span>
-                  </button>
+                  </span>
                 </div>
 
                 <div className="mt-4 flex flex-1 flex-col justify-between">
@@ -109,7 +120,7 @@ export function GaleriClient() {
                         {item.location}
                       </span>
                     </div>
-                    <h3 className="font-editorial mt-2 text-xl font-semibold leading-snug text-navy">
+                    <h3 className="font-editorial mt-2 text-xl font-semibold leading-snug text-navy transition-colors group-hover:text-terracotta">
                       <ProtectedText text={item.title} />
                     </h3>
                     <p className="mt-2 text-xs leading-relaxed text-slate-editorial">
@@ -169,7 +180,7 @@ export function GaleriClient() {
             {INSTAGRAM_POSTS.map((post, idx) => (
               <article
                 key={post.id}
-                className="flex flex-col overflow-hidden rounded-sm border border-navy/12 bg-alabaster shadow-sm"
+                className="flex flex-col overflow-hidden rounded-sm border border-navy/12 bg-alabaster shadow-sm transition-transform duration-300 hover:-translate-y-1"
               >
                 {/* Instagram Header Bar */}
                 <div className="flex items-center justify-between border-b border-hairline px-4 py-3">
@@ -205,7 +216,10 @@ export function GaleriClient() {
                     <p className="text-xs leading-relaxed text-ink/90">
                       <ProtectedText text={post.caption} />
                     </p>
-                    <div className="notranslate mt-3 flex flex-wrap gap-1.5" translate="no">
+                    <div
+                      className="notranslate mt-3 flex flex-wrap gap-1.5"
+                      translate="no"
+                    >
                       {post.tags.map((tag) => (
                         <span
                           key={tag}
@@ -239,58 +253,14 @@ export function GaleriClient() {
       </section>
 
       {/* =================================================================
-          3. LIGHTBOX INSPECTION MODAL
+          3. EDITORIAL LIGHTBOX MODAL WITH PREV/NEXT & KEYBOARD SUPPORT
           ================================================================= */}
-      {activeLightbox && (
-        <div
-          role="dialog"
-          aria-modal="true"
-          aria-label={activeLightbox.title}
-          className="fixed inset-0 z-50 flex items-center justify-center bg-navy/85 p-4 backdrop-blur-sm sm:p-6"
-          onClick={() => setActiveLightbox(null)}
-        >
-          <div
-            className="relative max-h-[92vh] w-full max-w-3xl overflow-y-auto rounded-sm border border-saffron/45 bg-alabaster p-6 shadow-2xl sm:p-8"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <div className="mb-4 flex items-start justify-between gap-4">
-              <div>
-                <p className="text-[10px] font-semibold tracking-[0.2em] uppercase text-saffron-dark">
-                  {activeLightbox.album} • {activeLightbox.date}
-                </p>
-                <h3 className="font-editorial mt-1 text-2xl font-semibold text-navy">
-                  <ProtectedText text={activeLightbox.title} />
-                </h3>
-              </div>
-              <button
-                type="button"
-                onClick={() => setActiveLightbox(null)}
-                aria-label="Tutup pratinjau"
-                className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-sm border border-navy/15 bg-sand text-navy hover:bg-navy hover:text-alabaster"
-              >
-                <X className="h-4 w-4" />
-              </button>
-            </div>
-
-            <EditorialPhotoPlaceholder
-              title={activeLightbox.title}
-              ratio="16:10"
-              resolution={activeLightbox.resolution}
-              badge={activeLightbox.location}
-              tone={activeLightbox.tone}
-              caption={activeLightbox.caption}
-            />
-
-            <div className="mt-5 flex flex-wrap items-center justify-between gap-3 border-t border-hairline pt-4 text-xs text-slate-editorial">
-              <span>Lokasi: {activeLightbox.location}</span>
-              <span className="notranslate font-semibold text-navy" translate="no">
-                Spesifikasi Foto Ideal: {activeLightbox.ratio} •{" "}
-                {activeLightbox.resolution}
-              </span>
-            </div>
-          </div>
-        </div>
-      )}
+      <EditorialLightbox
+        items={filteredItems}
+        activeIndex={activeLightboxIndex}
+        onClose={() => setActiveLightboxIndex(null)}
+        onNavigate={(nextIdx) => setActiveLightboxIndex(nextIdx)}
+      />
     </>
   );
 }

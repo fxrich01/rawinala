@@ -3,6 +3,7 @@
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { motion, useScroll, useSpring } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { NAV_ITEMS } from "@/data/siteData";
 import { BrandCrest } from "@/components/BrandCrest";
@@ -13,6 +14,14 @@ export function Header() {
   const pathname = usePathname();
   const [mobileOpen, setMobileOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+
+  // 2px Warm Saffron Gold reading progress indicator at bottom of sticky header
+  const { scrollYProgress } = useScroll();
+  const progressScaleX = useSpring(scrollYProgress, {
+    stiffness: 180,
+    damping: 30,
+    restDelta: 0.001,
+  });
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 12);
@@ -191,6 +200,17 @@ export function Header() {
           </div>
         </div>
       )}
+
+      {/* 2px Warm Saffron Gold Reading Progress Indicator */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-x-0 bottom-0 h-[2px] bg-transparent"
+      >
+        <motion.div
+          style={{ scaleX: progressScaleX }}
+          className="h-full w-full origin-left bg-[#D49A2A]"
+        />
+      </div>
     </header>
   );
 }

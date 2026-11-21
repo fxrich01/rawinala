@@ -10,7 +10,16 @@ import {
 } from "lucide-react";
 import { ARTICLES, GALLERY_ITEMS, PILLARS } from "@/data/siteData";
 import { EditorialPhotoPlaceholder } from "@/components/EditorialPhotoPlaceholder";
-import { FadeUp, RevealRule } from "@/components/MotionPrimitives";
+import {
+  FadeUp,
+  HeroParallaxFrame,
+  RevealRule,
+  StaggerContainer,
+  StaggerItem,
+} from "@/components/MotionPrimitives";
+import { SpotlightPillarCard } from "@/components/SpotlightPillarCard";
+import { SynergyTimelineSection } from "@/components/SynergyTimelineSection";
+import { HomeGalleryPreview } from "@/components/HomeGalleryPreview";
 import {
   FounderName,
   MenkoName,
@@ -25,7 +34,7 @@ export default function HomePage() {
   return (
     <div className="bg-alabaster">
       {/* ===================================================================
-          1. EDITORIAL HERO SECTION
+          1. EDITORIAL HERO SECTION (STAGGERED REVEAL + SUBTLE PARALLAX)
           =================================================================== */}
       <section className="relative overflow-hidden border-b border-hairline bg-alabaster editorial-grain">
         {/* Subtle golden radiance accent */}
@@ -42,80 +51,88 @@ export default function HomePage() {
           <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-12 lg:gap-10">
             {/* Editorial Copy Column */}
             <div className="lg:col-span-6">
-              <FadeUp>
-                <div className="inline-flex flex-wrap items-center gap-2.5 rounded-sm border border-saffron/45 bg-sand/80 px-3.5 py-1.5 text-[11px] font-semibold tracking-[0.18em] uppercase text-navy">
-                  <Sparkles className="h-3.5 w-3.5 text-saffron-dark" />
-                  <span>
-                    <OfficialOrgName uppercase /> • Indonesia
-                  </span>
-                </div>
-
-                <h1 className="font-editorial mt-7 text-4xl font-semibold leading-[1.08] tracking-tight text-navy sm:text-5xl lg:text-[58px]">
-                  Terang Bagi Kemanusiaan,{" "}
-                  <span className="italic text-terracotta">
-                    Kekuatan Bagi Indonesia
-                  </span>
-                </h1>
-
-                <p className="mt-6 max-w-xl text-base leading-relaxed text-slate-editorial sm:text-[17px]">
-                  <OfficialOrgName className="font-semibold text-navy" /> hadir
-                  sebagai ruang pengabdian kemasyarakatan yang menjunjung tinggi
-                  dialog lintas agama, solidaritas kemanusiaan tanpa sekat, dan
-                  sinergi strategis demi kokohnya persatuan Negara Kesatuan
-                  Republik Indonesia.
-                </p>
-
-                <div className="mt-9 flex flex-wrap items-center gap-3.5">
-                  <Link
-                    href="/pilar-gerakan"
-                    className="inline-flex items-center gap-2.5 rounded-sm bg-navy px-6 py-3.5 text-sm font-semibold text-alabaster transition-all duration-200 hover:bg-navy-soft hover:shadow-lg hover:shadow-navy/15"
-                  >
-                    <span>Jelajahi Pilar Gerakan</span>
-                    <ArrowRight className="rtl-flip h-4 w-4 text-saffron" />
-                  </Link>
-                  <Link
-                    href="/tentang-kami"
-                    className="inline-flex items-center gap-2 rounded-sm border border-navy/25 bg-alabaster px-6 py-3.5 text-sm font-semibold text-navy transition-colors hover:border-saffron hover:bg-sand/70"
-                  >
-                    <span>Filosofi &amp; Kepemimpinan</span>
-                  </Link>
-                </div>
-              </FadeUp>
-
-              {/* Sovereign Archival Metadata Strip */}
-              <FadeUp delay={0.12}>
-                <div className="mt-11 grid grid-cols-1 gap-4 border-t border-hairline pt-6 sm:grid-cols-3">
-                  <div>
-                    <p className="text-[10px] font-semibold tracking-[0.18em] uppercase text-saffron-dark">
-                      Pendiri Organisasi
-                    </p>
-                    <p className="mt-1 text-sm font-semibold text-navy">
-                      <FounderName />
-                    </p>
+              <StaggerContainer immediate staggerDelay={0.09}>
+                <StaggerItem>
+                  <div className="inline-flex flex-wrap items-center gap-2.5 rounded-sm border border-saffron/45 bg-sand/80 px-3.5 py-1.5 text-[11px] font-semibold tracking-[0.18em] uppercase text-navy">
+                    <Sparkles className="h-3.5 w-3.5 text-saffron-dark" />
+                    <span>
+                      <OfficialOrgName uppercase /> • Indonesia
+                    </span>
                   </div>
-                  <div>
-                    <p className="text-[10px] font-semibold tracking-[0.18em] uppercase text-saffron-dark">
-                      Tonggak Kelembagaan
-                    </p>
-                    <p className="mt-1 text-sm font-semibold text-navy">
-                      Pelantikan Nov 2026
-                    </p>
+                </StaggerItem>
+
+                <StaggerItem>
+                  <h1 className="font-editorial mt-7 text-4xl font-semibold leading-[1.08] tracking-tight text-navy sm:text-5xl lg:text-[58px]">
+                    Terang Bagi Kemanusiaan,{" "}
+                    <span className="italic text-terracotta">
+                      Kekuatan Bagi Indonesia
+                    </span>
+                  </h1>
+                </StaggerItem>
+
+                <StaggerItem>
+                  <p className="mt-6 max-w-xl text-base leading-relaxed text-slate-editorial sm:text-[17px]">
+                    <OfficialOrgName className="font-semibold text-navy" />{" "}
+                    hadir sebagai ruang pengabdian kemasyarakatan yang
+                    menjunjung tinggi dialog lintas agama, solidaritas
+                    kemanusiaan tanpa sekat, dan sinergi strategis demi kokohnya
+                    persatuan Negara Kesatuan Republik Indonesia.
+                  </p>
+                </StaggerItem>
+
+                <StaggerItem>
+                  <div className="mt-9 flex flex-wrap items-center gap-3.5">
+                    <Link
+                      href="/pilar-gerakan"
+                      className="group inline-flex items-center gap-2.5 rounded-sm bg-navy px-6 py-3.5 text-sm font-semibold text-alabaster transition-all duration-200 hover:bg-navy-soft hover:shadow-lg hover:shadow-navy/15"
+                    >
+                      <span>Jelajahi Pilar Gerakan</span>
+                      <ArrowRight className="rtl-flip h-4 w-4 text-saffron transition-transform duration-200 group-hover:translate-x-1" />
+                    </Link>
+                    <Link
+                      href="/tentang-kami"
+                      className="inline-flex items-center gap-2 rounded-sm border border-navy/25 bg-alabaster px-6 py-3.5 text-sm font-semibold text-navy transition-colors hover:border-saffron hover:bg-sand/70"
+                    >
+                      <span>Filosofi &amp; Kepemimpinan</span>
+                    </Link>
                   </div>
-                  <div>
-                    <p className="text-[10px] font-semibold tracking-[0.18em] uppercase text-saffron-dark">
-                      Mandat Utama
-                    </p>
-                    <p className="mt-1 text-sm font-semibold text-navy">
-                      Dialog • Sosial • NKRI
-                    </p>
+                </StaggerItem>
+
+                {/* Sovereign Archival Metadata Strip */}
+                <StaggerItem>
+                  <div className="mt-11 grid grid-cols-1 gap-4 border-t border-hairline pt-6 sm:grid-cols-3">
+                    <div>
+                      <p className="text-[10px] font-semibold tracking-[0.18em] uppercase text-saffron-dark">
+                        Pendiri Organisasi
+                      </p>
+                      <p className="mt-1 text-sm font-semibold text-navy">
+                        <FounderName />
+                      </p>
+                    </div>
+                    <div>
+                      <p className="text-[10px] font-semibold tracking-[0.18em] uppercase text-saffron-dark">
+                        Tonggak Kelembagaan
+                      </p>
+                      <p className="mt-1 text-sm font-semibold text-navy">
+                        Pelantikan Nov 2026
+                      </p>
+                    </div>
+                    <div>
+                      <p className="text-[10px] font-semibold tracking-[0.18em] uppercase text-saffron-dark">
+                        Mandat Utama
+                      </p>
+                      <p className="mt-1 text-sm font-semibold text-navy">
+                        Dialog • Sosial • NKRI
+                      </p>
+                    </div>
                   </div>
-                </div>
-              </FadeUp>
+                </StaggerItem>
+              </StaggerContainer>
             </div>
 
-            {/* Cinematic Editorial Hero Visual Frame */}
+            {/* Cinematic Editorial Hero Visual Frame with Subtle Scroll Parallax */}
             <div className="lg:col-span-6">
-              <FadeUp delay={0.15}>
+              <HeroParallaxFrame>
                 <div className="relative">
                   {/* Subtle decorative offset heritage border */}
                   <div
@@ -131,7 +148,7 @@ export default function HomePage() {
                     caption="Rekomendasi foto sinematik beresolusi tinggi: momen kebersamaan lintas agama, prosesi pelantikan pengurus, atau audiensi kenegaraan."
                   />
                 </div>
-              </FadeUp>
+              </HeroParallaxFrame>
             </div>
           </div>
         </div>
@@ -218,10 +235,10 @@ export default function HomePage() {
                 <div className="mt-7 flex flex-wrap items-center gap-4">
                   <Link
                     href={`/kabar-pers/${featuredArticle.slug}`}
-                    className="inline-flex items-center gap-2 rounded-sm bg-saffron px-5 py-3 text-xs font-bold tracking-wider uppercase text-navy transition-colors hover:bg-alabaster"
+                    className="group inline-flex items-center gap-2 rounded-sm bg-saffron px-5 py-3 text-xs font-bold tracking-wider uppercase text-navy transition-colors hover:bg-alabaster"
                   >
                     <span>Baca Liputan Lengkap</span>
-                    <ArrowRight className="rtl-flip h-4 w-4" />
+                    <ArrowRight className="rtl-flip h-4 w-4 transition-transform duration-200 group-hover:translate-x-0.5" />
                   </Link>
                   <Link
                     href="/tentang-kami#kepemimpinan"
@@ -238,7 +255,7 @@ export default function HomePage() {
       </section>
 
       {/* ===================================================================
-          3. RINGKASAN 3 PILAR GERAKAN (INTERACTIVE EDITORIAL CARDS)
+          3. RINGKASAN 3 PILAR GERAKAN (INTERACTIVE SPOTLIGHT CARDS)
           =================================================================== */}
       <section className="border-b border-hairline bg-sand py-20 sm:py-28">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -264,55 +281,27 @@ export default function HomePage() {
             <RevealRule className="mt-8" />
           </FadeUp>
 
-          <div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-3">
-            {PILLARS.map((pillar, idx) => (
-              <FadeUp key={pillar.id} delay={idx * 0.08}>
-                <Link
-                  href={`/pilar-gerakan#${pillar.id}`}
-                  className="group flex h-full flex-col justify-between rounded-sm border border-navy/12 bg-alabaster p-7 transition-all duration-300 hover:-translate-y-1 hover:border-saffron hover:shadow-xl hover:shadow-navy/8 sm:p-8"
-                >
-                  <div>
-                    <div className="flex items-center justify-between border-b border-hairline pb-5">
-                      <span className="font-editorial text-4xl font-semibold text-saffron-dark">
-                        {pillar.index}
-                      </span>
-                      <span className="rounded-sm border border-navy/10 bg-sand/70 px-2.5 py-1 text-[10px] font-semibold tracking-[0.14em] uppercase text-navy/70">
-                        {pillar.englishSubtitle}
-                      </span>
-                    </div>
-
-                    <h3 className="font-editorial mt-6 text-2xl font-semibold leading-snug text-navy transition-colors group-hover:text-terracotta">
-                      {pillar.title}
-                    </h3>
-
-                    <p className="mt-2 text-xs font-semibold tracking-wide text-saffron-dark">
-                      {pillar.tagline}
-                    </p>
-
-                    <p className="mt-4 text-sm leading-relaxed text-slate-editorial">
-                      <ProtectedText text={pillar.summary} />
-                    </p>
-                  </div>
-
-                  <div className="mt-8 flex items-center justify-between border-t border-hairline/80 pt-5 text-xs font-semibold tracking-wider uppercase text-navy">
-                    <span>Pelajari Program</span>
-                    <span className="inline-flex h-8 w-8 items-center justify-center rounded-full border border-navy/15 transition-all duration-300 group-hover:border-saffron group-hover:bg-navy group-hover:text-saffron">
-                      <ArrowRight className="rtl-flip h-3.5 w-3.5" />
-                    </span>
-                  </div>
-                </Link>
-              </FadeUp>
+          <StaggerContainer className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-3">
+            {PILLARS.map((pillar) => (
+              <StaggerItem key={pillar.id} className="h-full">
+                <SpotlightPillarCard pillar={pillar} />
+              </StaggerItem>
             ))}
-          </div>
+          </StaggerContainer>
         </div>
       </section>
 
       {/* ===================================================================
-          4. MANIFESTO PENDIRI & CUPLIKAN DOKUMENTASI LAPANGAN
+          4. INTERACTIVE TAB / TIMELINE: PETA & JEJAK SINERGI LINTAS ELEMEN
+          =================================================================== */}
+      <SynergyTimelineSection />
+
+      {/* ===================================================================
+          5. MANIFESTO PENDIRI & CUPLIKAN DOKUMENTASI LAPANGAN (LIGHTBOX)
           =================================================================== */}
       <section className="bg-alabaster py-20 sm:py-28">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          {/* Founder's Manifesto */}
+          {/* Founder's Manifesto with Staggered Editorial Reveal */}
           <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-12 lg:gap-14">
             <div className="lg:col-span-5">
               <FadeUp>
@@ -328,51 +317,62 @@ export default function HomePage() {
             </div>
 
             <div className="lg:col-span-7">
-              <FadeUp delay={0.1}>
-                <p className="text-[11px] font-semibold tracking-[0.22em] uppercase text-saffron-dark">
-                  Manifesto Pendiri
-                </p>
-                <Quote className="mt-4 h-10 w-10 text-saffron/60" />
+              <StaggerContainer staggerDelay={0.1}>
+                <StaggerItem>
+                  <p className="text-[11px] font-semibold tracking-[0.22em] uppercase text-saffron-dark">
+                    Manifesto Pendiri
+                  </p>
+                  <Quote className="mt-4 h-10 w-10 text-saffron/60" />
+                </StaggerItem>
 
-                <blockquote className="font-editorial mt-4 text-2xl font-medium italic leading-snug text-navy sm:text-3xl lg:text-[34px]">
-                  &ldquo;Di tengah dunia yang kerap diuji oleh sekat perbedaan,
-                  kita terpanggil menyalakan pelita. Bukan sekadar cahaya yang
-                  menerangi diri sendiri, melainkan terang yang menghangatkan
-                  kemanusiaan dan memperkokoh rumah besar Indonesia.&rdquo;
-                </blockquote>
+                <StaggerItem>
+                  <blockquote className="font-editorial mt-4 text-2xl font-medium italic leading-snug text-navy sm:text-3xl lg:text-[34px]">
+                    &ldquo;Di tengah dunia yang kerap diuji oleh sekat
+                    perbedaan, kita terpanggil menyalakan pelita. Bukan sekadar
+                    cahaya yang menerangi diri sendiri, melainkan terang yang
+                    menghangatkan kemanusiaan dan memperkokoh rumah besar
+                    Indonesia.&rdquo;
+                  </blockquote>
+                </StaggerItem>
 
-                <p className="mt-6 text-sm leading-relaxed text-slate-editorial sm:text-[15px]">
-                  Berangkat dari keyakinan bahwa kerukunan adalah karya nyata
-                  yang harus terus dirawat,{" "}
-                  <FounderName className="font-semibold text-navy" /> mendirikan{" "}
-                  <OfficialOrgName className="font-semibold text-navy" /> sebagai
-                  wadah perjumpaan lintas agama, penggerak aksi sosial, serta
-                  mitra konstruktif negara dalam menjaga keutuhan bangsa.
-                </p>
+                <StaggerItem>
+                  <p className="mt-6 text-sm leading-relaxed text-slate-editorial sm:text-[15px]">
+                    Berangkat dari keyakinan bahwa kerukunan adalah karya nyata
+                    yang harus terus dirawat,{" "}
+                    <FounderName className="font-semibold text-navy" />{" "}
+                    mendirikan{" "}
+                    <OfficialOrgName className="font-semibold text-navy" />{" "}
+                    sebagai wadah perjumpaan lintas agama, penggerak aksi
+                    sosial, serta mitra konstruktif negara dalam menjaga
+                    keutuhan bangsa.
+                  </p>
+                </StaggerItem>
 
-                <div className="mt-8 flex flex-wrap items-center justify-between gap-4 border-t border-hairline pt-6">
-                  <div>
-                    <p className="font-editorial text-2xl font-semibold text-navy">
-                      <FounderName />
-                    </p>
-                    <p className="text-xs font-medium tracking-wider uppercase text-slate-editorial">
-                      Pendiri <OfficialOrgName />
-                    </p>
+                <StaggerItem>
+                  <div className="mt-8 flex flex-wrap items-center justify-between gap-4 border-t border-hairline pt-6">
+                    <div>
+                      <p className="font-editorial text-2xl font-semibold text-navy">
+                        <FounderName />
+                      </p>
+                      <p className="text-xs font-medium tracking-wider uppercase text-slate-editorial">
+                        Pendiri <OfficialOrgName />
+                      </p>
+                    </div>
+
+                    <Link
+                      href="/tentang-kami#kepemimpinan"
+                      className="group inline-flex items-center gap-2 rounded-sm border border-navy/20 bg-sand/60 px-4 py-2.5 text-xs font-semibold tracking-wider uppercase text-navy transition-colors hover:border-saffron hover:bg-navy hover:text-alabaster"
+                    >
+                      <span>Profil Lengkap &amp; Pengurus</span>
+                      <ArrowRight className="rtl-flip h-3.5 w-3.5 transition-transform duration-200 group-hover:translate-x-0.5" />
+                    </Link>
                   </div>
-
-                  <Link
-                    href="/tentang-kami#kepemimpinan"
-                    className="inline-flex items-center gap-2 rounded-sm border border-navy/20 bg-sand/60 px-4 py-2.5 text-xs font-semibold tracking-wider uppercase text-navy transition-colors hover:border-saffron hover:bg-navy hover:text-alabaster"
-                  >
-                    <span>Profil Lengkap &amp; Pengurus</span>
-                    <ArrowRight className="rtl-flip h-3.5 w-3.5" />
-                  </Link>
-                </div>
-              </FadeUp>
+                </StaggerItem>
+              </StaggerContainer>
             </div>
           </div>
 
-          {/* Field Documentation Strip */}
+          {/* Field Documentation Strip with Interactive Editorial Lightbox */}
           <div className="mt-20 border-t border-hairline pt-16 sm:mt-24">
             <FadeUp>
               <div className="flex flex-wrap items-end justify-between gap-4">
@@ -383,6 +383,10 @@ export default function HomePage() {
                   <h2 className="font-editorial mt-2 text-3xl font-semibold text-navy sm:text-4xl">
                     Cuplikan Dokumentasi Kegiatan
                   </h2>
+                  <p className="mt-1.5 text-xs text-slate-editorial">
+                    Klik kartu dokumentasi untuk membuka tampilan Lightbox &amp;
+                    kronologi lengkap kegiatan.
+                  </p>
                 </div>
                 <Link
                   href="/galeri"
@@ -394,33 +398,7 @@ export default function HomePage() {
               </div>
             </FadeUp>
 
-            <div className="mt-10 grid grid-cols-1 gap-6 md:grid-cols-3">
-              {previewGallery.map((item, idx) => (
-                <FadeUp key={item.id} delay={idx * 0.08}>
-                  <Link
-                    href="/galeri"
-                    className="group block rounded-sm border border-hairline bg-sand/40 p-4 transition-all duration-300 hover:border-saffron hover:bg-sand/80"
-                  >
-                    <EditorialPhotoPlaceholder
-                      title={item.title}
-                      ratio="4:3"
-                      resolution={item.resolution}
-                      badge={item.album}
-                      tone={item.tone}
-                      compact
-                    />
-                    <div className="mt-4">
-                      <p className="text-[11px] font-semibold tracking-wider uppercase text-saffron-dark">
-                        {item.date} • {item.location}
-                      </p>
-                      <h3 className="font-editorial mt-1.5 text-xl font-semibold leading-snug text-navy group-hover:text-terracotta">
-                        <ProtectedText text={item.title} />
-                      </h3>
-                    </div>
-                  </Link>
-                </FadeUp>
-              ))}
-            </div>
+            <HomeGalleryPreview items={previewGallery} />
           </div>
 
           {/* Official Correspondence Invitation Band */}
@@ -442,10 +420,10 @@ export default function HomePage() {
                 </div>
                 <Link
                   href="/kontak"
-                  className="inline-flex shrink-0 items-center gap-2.5 rounded-sm bg-navy px-6 py-4 text-xs font-bold tracking-[0.14em] uppercase text-alabaster transition-colors hover:bg-terracotta"
+                  className="group inline-flex shrink-0 items-center gap-2.5 rounded-sm bg-navy px-6 py-4 text-xs font-bold tracking-[0.14em] uppercase text-alabaster transition-colors hover:bg-terracotta"
                 >
                   <span>Hubungi Sekretariat Resmi</span>
-                  <ArrowRight className="rtl-flip h-4 w-4 text-saffron" />
+                  <ArrowRight className="rtl-flip h-4 w-4 text-saffron transition-transform duration-200 group-hover:translate-x-0.5" />
                 </Link>
               </div>
             </div>

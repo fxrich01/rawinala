@@ -519,6 +519,147 @@ export type GalleryAlbum =
   | "Audiensi Menko Polkam"
   | "Forum Dialog Lintas Iman";
 
+export const OFFICIAL_WHATSAPP_NUMBER = "6281150902026";
+
+export interface SynergyTrack {
+  id: "audiensi-kenegaraan" | "forum-lintas-iman" | "aksi-solidaritas";
+  label: string;
+  eyebrow: string;
+  headline: string;
+  statementQuote: string;
+  statementAuthor: string;
+  statementRole: string;
+  counters: {
+    value: number;
+    suffix: string;
+    label: string;
+  }[];
+  programs: {
+    period: string;
+    title: string;
+    location: string;
+    description: string;
+  }[];
+}
+
+export const SYNERGY_TRACKS: SynergyTrack[] = [
+  {
+    id: "audiensi-kenegaraan",
+    label: "Audiensi Kenegaraan",
+    eyebrow: "Sinergi Kelembagaan & Ketahanan Nasional",
+    headline: "Kemitraan Strategis Bersama Unsur Negara Menjaga Keutuhan NKRI",
+    statementQuote:
+      "Persatuan nasional hanya akan kokoh apabila negara dan masyarakat sipil berjalan beriringan dalam dialog yang saling menguatkan serta berlandaskan nilai Pancasila.",
+    statementAuthor: "Fu Kwet Khiong",
+    statementRole:
+      "Pernyataan Sikap Pendiri Rawinala Haridra Global — Audiensi November 2026",
+    counters: [
+      { value: 2026, suffix: "", label: "Tonggak Pelantikan & Audiensi Kemenko Polkam" },
+      { value: 12, suffix: "+", label: "Lembaga & Pemangku Kepentingan Mitra" },
+      { value: 38, suffix: "", label: "Provinsi Jangkauan Visi Kebangsaan" },
+    ],
+    programs: [
+      {
+        period: "November 2026",
+        title: "Audiensi Strategis Bersama Menko Polkam Jenderal (Purn.) Dudung Abdurachman",
+        location: "Kemenko Polkam RI, Jakarta",
+        description:
+          "Pemaparan peta jalan tiga pilar organisasi dan peneguhan peran masyarakat sipil dalam menjaga stabilitas sosial serta kerukunan nasional.",
+      },
+      {
+        period: "November 2026",
+        title: "Pengukuhan Dewan Pengurus Pusat Periode 2026–2031",
+        location: "Jakarta",
+        description:
+          "Pelantikan khidmat struktur kepengurusan nasional yang mempertegas tata kelola akuntabel dan kesiapan ekspansi program lintas wilayah.",
+      },
+      {
+        period: "Agenda Berkelanjutan",
+        title: "Simposium Kebangsaan & Ketahanan Sosial Nusantara",
+        location: "Jakarta & Daerah Strategis",
+        description:
+          "Forum kajian publik lintas sektor untuk merumuskan langkah preventif menghadapi polarisasi sosial dan memperkuat kohesi warga.",
+      },
+    ],
+  },
+  {
+    id: "forum-lintas-iman",
+    label: "Forum Lintas Iman",
+    eyebrow: "Diplomasi Kerukunan & Toleransi Substantif",
+    headline: "Merajut Ruang Perjumpaan Bermartabat Antar-Pemuka & Umat Beragama",
+    statementQuote:
+      "Dialog lintas iman bukan sekadar pertemuan seremonial, melainkan ikhtiar tulus menyalakan pelita pengertian agar perbedaan menjadi kekayaan peradaban bangsa.",
+    statementAuthor: "Bidang Dialog Lintas Agama",
+    statementRole: "Deklarasi Forum Meja Bundar Rawinala Haridra Global",
+    counters: [
+      { value: 6, suffix: "+", label: "Tradisi Iman & Kepercayaan Terlibat" },
+      { value: 18, suffix: "+", label: "Sarasehan & Meja Bundar Terjadwal" },
+      { value: 450, suffix: "+", label: "Tokoh Agama, Akademisi & Pemuda Hadir" },
+    ],
+    programs: [
+      {
+        period: "Oktober 2026",
+        title: "Sarasehan Kebangsaan & Dialog Lintas Iman Nusantara",
+        location: "Jakarta Pusat",
+        description:
+          "Pertemuan pemuka lintas agama, cendekiawan, dan pegiat masyarakat sipil membahas toleransi substantif di tengah dinamika global.",
+      },
+      {
+        period: "Triwulanan",
+        title: "Kaderisasi Duta Harmoni Muda Lintas Kampus",
+        location: "Jabodetabek, Bandung & Yogyakarta",
+        description:
+          "Program pendampingan generasi muda lintas keyakinan untuk merancang aksi kolaboratif dan literasi moderasi di ruang digital.",
+      },
+      {
+        period: "Berkala",
+        title: "Silaturahmi Rumah Ibadah, Pesantren & Komunitas Adat",
+        location: "Lintas Provinsi Indonesia",
+        description:
+          "Kunjungan persaudaraan langsung guna mempererat jembatan komunikasi di tingkat akar rumput.",
+      },
+    ],
+  },
+  {
+    id: "aksi-solidaritas",
+    label: "Aksi Solidaritas Kemanusiaan",
+    eyebrow: "Kepedulian Inklusif Tanpa Sekat Latar Belakang",
+    headline: "Menghadirkan Kehangatan Haridra Melalui Pelayanan Sosial Nyata",
+    statementQuote:
+      "Setiap paket pangan, layanan kesehatan, dan uluran tangan di saat darurat adalah wujud paling jujur dari persaudaraan sesama manusia tanpa memandang sekat apa pun.",
+    statementAuthor: "Satgas Aksi & Solidaritas Kemanusiaan",
+    statementRole: "Mandat Pelayanan Sosial Rawinala Haridra Global",
+    counters: [
+      { value: 2500, suffix: "+", label: "Paket Ketahanan Pangan Tersalurkan" },
+      { value: 100, suffix: "%", label: "Inklusif Lintas Suku & Keyakinan" },
+      { value: 24, suffix: "+", label: "Titik Layanan Sosial & Medis Terpadu" },
+    ],
+    programs: [
+      {
+        period: "September 2026",
+        title: "Gerakan Solidaritas Pangan & Layanan Kesehatan Gratis",
+        location: "Jabodetabek & Jawa Barat",
+        description:
+          "Penyaluran sembako bergizi bagi keluarga prasejahtera disertai pemeriksaan kesehatan umum oleh tim dokter sukarela.",
+      },
+      {
+        period: "Berkala",
+        title: "Klinik Peduli & Donor Darah Kemanusiaan",
+        location: "Sentra Komunitas & Panti Sosial",
+        description:
+          "Layanan pemeriksaan tekanan darah, konsultasi medis lansia, serta kampanye donor darah lintas komunitas.",
+      },
+      {
+        period: "Siaga Cepat",
+        title: "Satgas Tanggap Solidaritas Kebencanaan",
+        location: "Respons Cepat Nasional",
+        description:
+          "Mobilisasi logistik darurat dan dukungan pemulihan bagi warga terdampak bencana alam secara terkoordinasi.",
+      },
+    ],
+  },
+];
+
 export interface GalleryItem {
   id: string;
   album: GalleryAlbum;
@@ -526,6 +667,7 @@ export interface GalleryItem {
   date: string;
   location: string;
   caption: string;
+  chronology: string;
   ratio: "16:10" | "4:3" | "3:4" | "1:1";
   resolution: string;
   tone: "navy" | "sand" | "terracotta";
@@ -547,6 +689,8 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     location: "Kemenko Polkam RI, Jakarta",
     caption:
       "Foto resmi delegasi pengurus pusat Rawinala Haridra Global bersama Menteri Koordinator Bidang Politik dan Keamanan RI dalam sesi audiensi strategis.",
+    chronology:
+      "Dilaksanakan pada November 2026 di kantor Kemenko Polkam RI, Jakarta. Delegasi pengurus pusat bersama pendiri Fu Kwet Khiong diterima langsung oleh Jenderal (Purn.) Dudung Abdurachman untuk memaparkan mandat organisasi pascapelantikan sekaligus menyelaraskan program kerukunan nasional, dialog lintas agama, dan ketahanan sosial masyarakat.",
     ratio: "16:10",
     resolution: "1920 × 1200 px",
     tone: "navy",
@@ -559,6 +703,8 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     location: "Jakarta",
     caption:
       "Momen khidmat pelantikan jajaran Dewan Pengurus periode 2026–2031 sebagai peneguhan komitmen pelayanan kemanusiaan dan kebangsaan.",
+    chronology:
+      "Rangkaian pelantikan resmi pada November 2026 diawali dengan pembacaan ikrar pengabdian dan penyematan pin kelembagaan bagi Ketua Umum, Sekretaris Jenderal, Bendahara Umum, serta para Ketua Bidang. Prosesi ini menandai dimulainya periode kepengurusan 2026–2031 dengan tata kelola yang transparan dan profesional.",
     ratio: "4:3",
     resolution: "1600 × 1200 px",
     tone: "sand",
@@ -571,6 +717,8 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     location: "Kemenko Polkam RI, Jakarta",
     caption:
       "Sesi dialog mendalam mengenai sinergi kerukunan nasional, moderasi lintas agama, dan solidaritas kemanusiaan.",
+    chronology:
+      "Dalam sesi inti audiensi kenegaraan, pendiri Fu Kwet Khiong menyampaikan dokumen peta jalan lima tahunan Rawinala Haridra Global yang berfokus pada tiga pilar gerakan. Diskusi berlangsung hangat dengan penekanan pada peran aktif masyarakat sipil dalam memperkuat persaudaraan bangsa.",
     ratio: "4:3",
     resolution: "1600 × 1200 px",
     tone: "navy",
@@ -583,6 +731,8 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     location: "Jakarta",
     caption:
       "Pendiri Fu Kwet Khiong menyampaikan amanat manifesto pendirian organisasi di hadapan pengurus, tokoh masyarakat, dan tamu undangan.",
+    chronology:
+      "Momen simbolis penyerahan pataka kelembagaan diikuti sambutan manifesto oleh Fu Kwet Khiong yang menegaskan makna Rawinala dan Haridra sebagai pelita penerang bagi kemanusiaan serta penopang kekuatan persatuan Indonesia.",
     ratio: "3:4",
     resolution: "900 × 1200 px",
     tone: "terracotta",
@@ -595,6 +745,8 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     location: "Jakarta Pusat",
     caption:
       "Suasana dialog terbuka lintas tradisi keagamaan membahas peran masyarakat sipil dalam merawat harmoni sosial.",
+    chronology:
+      "Diselenggarakan pada Oktober 2026 di Jakarta Pusat, forum meja bundar ini mempertemukan perwakilan enam tradisi keagamaan, akademisi, dan budayawan untuk merumuskan agenda kerja kemanusiaan bersama yang melampaui sekat identitas.",
     ratio: "16:10",
     resolution: "1920 × 1200 px",
     tone: "sand",
@@ -607,6 +759,8 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     location: "Jakarta",
     caption:
       "Dokumentasi resmi seluruh pengurus terlantik bersama jajaran penasihat dan mitra organisasi.",
+    chronology:
+      "Sesi foto resmi penutup rangkaian Pelantikan Pengurus November 2026 yang mengabadikan kebersamaan seluruh anggota Dewan Pembina, Dewan Pengurus Pusat, pemuka lintas agama, serta mitra strategis organisasi.",
     ratio: "16:10",
     resolution: "1920 × 1200 px",
     tone: "navy",
@@ -619,6 +773,8 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     location: "Jakarta",
     caption:
       "Generasi muda lintas agama berdiskusi merancang agenda bakti sosial bersama sebagai implementasi toleransi nyata.",
+    chronology:
+      "Bagian dari rangkaian pra-peluncuran program Duta Harmoni Muda, di mana perwakilan mahasiswa dan profesional muda lintas iman merumuskan proyek pengabdian masyarakat terpadu untuk tahun 2026–2027.",
     ratio: "4:3",
     resolution: "1600 × 1200 px",
     tone: "terracotta",
@@ -631,6 +787,8 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     location: "Kemenko Polkam RI, Jakarta",
     caption:
       "Simbol komitmen kemitraan strategis antara Rawinala Haridra Global dan pemerintah dalam menjaga persatuan NKRI.",
+    chronology:
+      "Menutup sesi audiensi strategis di Kemenko Polkam RI, delegasi Rawinala Haridra Global menyerahkan cetak biru program kebangsaan dan cenderamata resmi kepada Jenderal (Purn.) Dudung Abdurachman sebagai wujud komitmen komunikasi berkelanjutan.",
     ratio: "4:3",
     resolution: "1600 × 1200 px",
     tone: "sand",
@@ -643,6 +801,8 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     location: "Jawa Barat",
     caption:
       "Rangkaian silaturahmi pengurus dalam mempererat jalinan persaudaraan antar-komunitas di tingkat akar rumput.",
+    chronology:
+      "Kunjungan lapangan di wilayah Jawa Barat pada September 2026 untuk mendengarkan aspirasi langsung para tokoh masyarakat setempat serta mengoordinasikan penyaluran bakti sosial terpadu.",
     ratio: "3:4",
     resolution: "900 × 1200 px",
     tone: "navy",

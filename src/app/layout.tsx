@@ -4,6 +4,7 @@ import "./globals.css";
 import { GoogleTranslateProvider } from "@/components/GoogleTranslateProvider";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
+import { FloatingConcierge } from "@/components/FloatingConcierge";
 
 const cormorant = Cormorant_Garamond({
   subsets: ["latin"],
@@ -58,6 +59,7 @@ export default function RootLayout({
           <Header />
           <main className="flex-1">{children}</main>
           <Footer />
+          <FloatingConcierge />
         </GoogleTranslateProvider>
       </body>
     </html>
