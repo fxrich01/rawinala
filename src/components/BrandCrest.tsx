@@ -1,11 +1,10 @@
 import React from "react";
+import { getMediaPath } from "@/lib/mediaPath";
 
 interface BrandCrestProps {
   className?: string;
   variant?: "dark" | "light";
 }
-
-const BASE_PATH = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 
 /**
  * Official transparent logo of Rawinala Haridra Global.
@@ -17,10 +16,11 @@ export function BrandCrest({
   className = "h-11 w-auto",
   variant = "dark",
 }: BrandCrestProps) {
-  const src =
+  const src = getMediaPath(
     variant === "light"
-      ? `${BASE_PATH}/images/logo-rawinala-light.png`
-      : `${BASE_PATH}/images/logo-rawinala.png`;
+      ? "/images/logo-rawinala-light.png"
+      : "/images/logo-rawinala.png"
+  );
 
   return (
     // eslint-disable-next-line @next/next/no-img-element

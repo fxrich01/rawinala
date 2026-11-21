@@ -140,12 +140,13 @@ export default function HomePage() {
                     className="pointer-events-none absolute -bottom-3 -end-3 hidden h-full w-full rounded-sm border border-saffron/45 sm:block"
                   />
                   <EditorialPhotoPlaceholder
-                    title="Frame Visual Utama: Sinergi Kebangsaan & Kemanusiaan Rawinala Haridra Global"
-                    ratio="16:10"
-                    resolution="1920 × 1200 px"
-                    badge="Visual Utama Beranda"
+                    src="/images/hero-harmony.jpg"
+                    title="Monumen Nasional Jakarta dalam cahaya fajar keemasan — simbol persatuan dan harapan Indonesia"
+                    ratio="16:9"
+                    badge="Terang Nusantara • Indonesia"
                     tone="navy"
-                    caption="Rekomendasi foto sinematik beresolusi tinggi: momen kebersamaan lintas agama, prosesi pelantikan pengurus, atau audiensi kenegaraan."
+                    illustrationNote="Ilustrasi visual persatuan Indonesia"
+                    caption="Cahaya fajar menyinari Jakarta—simbol semangat Rawinala Haridra Global merawat kerukunan dan keutuhan bangsa."
                   />
                 </div>
               </HeroParallaxFrame>
@@ -184,12 +185,13 @@ export default function HomePage() {
               {/* Milestone Visual */}
               <div className="lg:col-span-6">
                 <EditorialPhotoPlaceholder
+                  src={featuredArticle.image}
                   title="Audiensi Strategis Bersama Menko Polkam Jenderal (Purn.) Dudung Abdurachman"
-                  ratio="16:10"
-                  resolution="1920 × 1200 px"
+                  ratio="16:9"
                   badge="Audiensi Kenegaraan • Nov 2026"
                   tone="terracotta"
-                  caption="Foto resmi delegasi pengurus pusat Rawinala Haridra Global bersama Menko Polkam RI di Jakarta."
+                  illustrationNote="Ilustrasi dokumentasi kegiatan"
+                  compact
                 />
               </div>
 
@@ -306,12 +308,14 @@ export default function HomePage() {
             <div className="lg:col-span-5">
               <FadeUp>
                 <EditorialPhotoPlaceholder
-                  title="Potret Resmi Pendiri: Fu Kwet Khiong"
+                  src="/images/founder-portrait.jpg"
+                  title="Potret Editorial Pendiri Rawinala Haridra Global: Fu Kwet Khiong"
                   ratio="3:4"
-                  resolution="900 × 1200 px"
                   badge="Pendiri Organisasi"
                   tone="sand"
-                  caption="Tempatkan potret editorial resmi pendiri Rawinala Haridra Global dengan pencahayaan hangat dan berwibawa."
+                  objectPosition="top"
+                  illustrationNote="Ilustrasi potret editorial pendiri"
+                  caption="Fu Kwet Khiong — Pendiri Rawinala Haridra Global (dapat diganti langsung dengan foto resmi terbaru)."
                 />
               </FadeUp>
             </div>

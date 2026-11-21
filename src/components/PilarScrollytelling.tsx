@@ -147,11 +147,12 @@ export function PilarScrollytelling() {
                 {/* Editorial Visual Frame */}
                 <div className="mt-7">
                   <EditorialPhotoPlaceholder
+                    src={pillar.photoSpec.image}
                     title={pillar.photoSpec.title}
-                    ratio="4:3"
-                    resolution={pillar.photoSpec.resolution}
+                    ratio="16:9"
                     badge={`Pilar ${pillar.index} • ${pillar.englishSubtitle}`}
                     tone={pillar.photoSpec.tone}
+                    illustrationNote="Ilustrasi dokumentasi kegiatan"
                     caption={pillar.photoSpec.caption}
                   />
                 </div>

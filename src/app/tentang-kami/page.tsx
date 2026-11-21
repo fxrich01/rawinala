@@ -85,12 +85,13 @@ export default function TentangKamiPage() {
 
                 <div className="mt-8">
                   <EditorialPhotoPlaceholder
-                    title="Ilustrasi / Dokumentasi Sejarah Pendirian Organisasi"
-                    ratio="4:3"
-                    resolution="1600 × 1200 px"
+                    src="/images/persatuan-kebangsaan.jpg"
+                    title="Ilustrasi Dokumentasi Simposium & Sejarah Pendirian Organisasi"
+                    ratio="16:9"
                     badge="Arsip Kelembagaan"
                     tone="sand"
-                    caption="Dapat diisi foto penyerahan pataka organisasi, penandatanganan piagam pendirian, atau forum deklarasi awal."
+                    illustrationNote="Ilustrasi dokumentasi kegiatan"
+                    caption="Ilustrasi suasana forum kelembagaan dan konsolidasi nilai-nilai persatuan Rawinala Haridra Global."
                   />
                 </div>
               </FadeUp>
@@ -319,11 +320,13 @@ export default function TentangKamiPage() {
             <div className="mt-12 grid grid-cols-1 items-center gap-8 rounded-sm border border-saffron/40 bg-sand/65 p-6 sm:p-10 lg:grid-cols-12 lg:gap-12">
               <div className="lg:col-span-4">
                 <EditorialPhotoPlaceholder
+                  src="/images/founder-portrait.jpg"
                   title="Potret Resmi Pendiri: Fu Kwet Khiong"
                   ratio="3:4"
-                  resolution="900 × 1200 px"
                   badge="Pendiri Organisasi"
                   tone="navy"
+                  objectPosition="top"
+                  illustrationNote="Ilustrasi potret editorial pendiri"
                   compact
                 />
               </div>
@@ -393,11 +396,13 @@ export default function TentangKamiPage() {
                 <FadeUp key={member.role} delay={idx * 0.05}>
                   <div className="flex h-full flex-col rounded-sm border border-hairline bg-alabaster p-5 transition-colors hover:border-saffron">
                     <EditorialPhotoPlaceholder
+                      src={member.image}
                       title={member.name}
                       ratio="3:4"
-                      resolution="900 × 1200 px"
                       badge={member.role}
                       tone={idx % 2 === 0 ? "sand" : "navy"}
+                      objectPosition="top"
+                      illustrationNote="Ilustrasi dokumentasi pengurus"
                       compact
                     />
                     <div className="mt-5 flex-1">

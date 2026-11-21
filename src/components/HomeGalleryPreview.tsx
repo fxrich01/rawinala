@@ -27,11 +27,12 @@ export function HomeGalleryPreview({ items }: HomeGalleryPreviewProps) {
             >
               <div className="relative">
                 <EditorialPhotoPlaceholder
+                  src={item.image}
                   title={item.title}
-                  ratio="4:3"
-                  resolution={item.resolution}
+                  ratio="16:9"
                   badge={item.album}
                   tone={item.tone}
+                  illustrationNote="Ilustrasi dokumentasi kegiatan"
                   compact
                 />
                 <span className="absolute bottom-3 end-3 z-20 inline-flex items-center gap-1.5 rounded-sm border border-saffron/60 bg-navy/90 px-2.5 py-1.5 text-[10px] font-semibold tracking-wider uppercase text-alabaster transition-colors group-hover:bg-saffron group-hover:text-navy">

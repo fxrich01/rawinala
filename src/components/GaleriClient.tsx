@@ -94,11 +94,12 @@ export function GaleriClient() {
               >
                 <div className="relative">
                   <EditorialPhotoPlaceholder
+                    src={item.image}
                     title={item.title}
-                    ratio={item.ratio === "3:4" ? "4:3" : item.ratio}
-                    resolution={item.resolution}
+                    ratio="16:9"
                     badge={item.album}
                     tone={item.tone}
+                    illustrationNote="Ilustrasi dokumentasi kegiatan"
                     compact
                   />
                   <span className="absolute bottom-3 end-3 z-20 inline-flex items-center gap-1.5 rounded-sm border border-saffron/60 bg-navy/90 px-2.5 py-1.5 text-[10px] font-semibold tracking-wider uppercase text-alabaster opacity-95 shadow transition-colors group-hover:bg-saffron group-hover:text-navy">
@@ -128,11 +129,8 @@ export function GaleriClient() {
                     </p>
                   </div>
 
-                  <p
-                    className="notranslate mt-4 border-t border-hairline/80 pt-3 text-[10px] font-semibold tracking-wider uppercase text-navy/60"
-                    translate="no"
-                  >
-                    Rasio Ideal: {item.ratio} ({item.resolution})
+                  <p className="mt-4 border-t border-hairline/80 pt-3 text-[10px] font-semibold tracking-wider uppercase text-navy/60">
+                    Ilustrasi dokumentasi kegiatan • Klik untuk detail
                   </p>
                 </div>
               </div>
@@ -201,11 +199,12 @@ export function GaleriClient() {
                 {/* 4:5 Portrait Instagram Frame */}
                 <div className="p-3 pb-0">
                   <EditorialPhotoPlaceholder
+                    src={post.image}
                     title={post.title}
                     ratio={post.ratio}
-                    resolution={post.resolution}
                     badge={`Instagram • ${post.date}`}
                     tone={idx % 2 === 0 ? "navy" : "terracotta"}
+                    illustrationNote="Ilustrasi unggahan kegiatan"
                     compact
                   />
                 </div>

@@ -97,11 +97,12 @@ export default async function ArticleDetailPage({
       <article className="mx-auto max-w-5xl px-4 py-12 sm:px-6 sm:py-16 lg:px-8">
         {/* Hero Visual Frame */}
         <EditorialPhotoPlaceholder
+          src={article.image}
           title={article.title}
           ratio="16:9"
-          resolution="1920 × 1080 px"
           badge="Foto Utama Liputan"
           tone="navy"
+          illustrationNote="Ilustrasi dokumentasi kegiatan"
           caption={article.heroCaption}
         />
 
@@ -211,13 +212,13 @@ export default async function ArticleDetailPage({
               {article.galleryFrames.map((frame, idx) => (
                 <EditorialPhotoPlaceholder
                   key={frame.title}
+                  src={frame.image}
                   title={frame.title}
-                  ratio="16:10"
-                  resolution={frame.resolution}
+                  ratio="16:9"
                   badge={`Dokumentasi 0${idx + 1}`}
                   tone={idx === 0 ? "navy" : idx === 1 ? "sand" : "terracotta"}
+                  illustrationNote="Ilustrasi dokumentasi kegiatan"
                   caption={frame.caption}
-                  compact
                 />
               ))}
             </div>

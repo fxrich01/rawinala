@@ -67,11 +67,12 @@ export function KabarPersClient() {
           <article className="mt-10 grid grid-cols-1 items-center gap-8 rounded-sm border border-navy/15 bg-sand/60 p-6 sm:p-8 lg:grid-cols-12 lg:p-10">
             <div className="lg:col-span-6">
               <EditorialPhotoPlaceholder
+                src={leadStory.image}
                 title={leadStory.title}
-                ratio="16:10"
-                resolution="1920 × 1200 px"
+                ratio="16:9"
                 badge={leadStory.featured ? "Berita Utama" : leadStory.category}
                 tone="navy"
+                illustrationNote="Ilustrasi dokumentasi kegiatan"
                 caption={leadStory.heroCaption}
               />
             </div>
@@ -131,11 +132,12 @@ export function KabarPersClient() {
               >
                 <div className="p-4 pb-0">
                   <EditorialPhotoPlaceholder
+                    src={article.image}
                     title={article.title}
-                    ratio="16:10"
-                    resolution="1600 × 1000 px"
+                    ratio="16:9"
                     badge={article.category}
                     tone={idx % 2 === 0 ? "sand" : "terracotta"}
+                    illustrationNote="Ilustrasi dokumentasi kegiatan"
                     compact
                   />
                 </div>

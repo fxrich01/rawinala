@@ -77,6 +77,7 @@ export interface PillarItem {
     label: string;
   }[];
   photoSpec: {
+    image: string;
     title: string;
     ratio: string;
     resolution: string;
@@ -121,11 +122,12 @@ export const PILLARS: PillarItem[] = [
       { value: "Nasional", label: "Jejaring Tokoh & Komunitas" },
     ],
     photoSpec: {
+      image: "/images/dialog-lintas-iman.jpg",
       title: "Dokumentasi Forum Dialog Lintas Agama",
-      ratio: "4:3",
-      resolution: "1600 × 1200 px",
+      ratio: "16:9",
+      resolution: "1600 × 900 px",
       caption:
-        "Tempatkan foto suasana sarasehan atau diskusi meja bundar para pemuka lintas agama bersama pengurus Rawinala Haridra Global.",
+        "Ilustrasi suasana sarasehan meja bundar para pemuka lintas agama dalam merawat harmoni dan toleransi substantif Nusantara.",
       tone: "navy",
     },
   },
@@ -164,11 +166,12 @@ export const PILLARS: PillarItem[] = [
       { value: "Berkala", label: "Audit & Laporan Dampak Terbuka" },
     ],
     photoSpec: {
+      image: "/images/aksi-kemanusiaan.jpg",
       title: "Dokumentasi Bakti Sosial & Aksi Kemanusiaan",
-      ratio: "4:3",
-      resolution: "1600 × 1200 px",
+      ratio: "16:9",
+      resolution: "1600 × 900 px",
       caption:
-        "Tempatkan foto humanis kegiatan penyaluran bantuan kemanusiaan, pemeriksaan kesehatan, atau interaksi relawan di lapangan.",
+        "Ilustrasi kegiatan penyaluran paket ketahanan pangan dan solidaritas sosial relawan bersama warga lintas latar belakang.",
       tone: "terracotta",
     },
   },
@@ -207,11 +210,12 @@ export const PILLARS: PillarItem[] = [
       { value: "Global", label: "Diplomasi Kerukunan Nusantara" },
     ],
     photoSpec: {
+      image: "/images/persatuan-kebangsaan.jpg",
       title: "Dokumentasi Audiensi Kenegaraan & Simposium Kebangsaan",
-      ratio: "4:3",
-      resolution: "1600 × 1200 px",
+      ratio: "16:9",
+      resolution: "1600 × 900 px",
       caption:
-        "Tempatkan foto audiensi kelembagaan, forum kebangsaan, atau pertemuan resmi pengurus bersama tokoh kenegaraan.",
+        "Ilustrasi forum simposium kebangsaan dan sinergi kelembagaan dalam memperkokoh persatuan nasional Indonesia.",
       tone: "sand",
     },
   },
@@ -222,6 +226,7 @@ export interface BoardMember {
   role: string;
   division: string;
   bio: string;
+  image: string;
   isProtectedName?: boolean;
   photoNote: string;
 }
@@ -232,49 +237,56 @@ export const BOARD_MEMBERS: BoardMember[] = [
     role: "Dewan Pembina Nasional",
     division: "Pengarah Strategis & Etika Organisasi",
     bio: "Menghimpun tokoh masyarakat, pemuka lintas agama, serta figur kenegaraan yang memberikan arahan moral dan visi jangka panjang organisasi.",
-    photoNote: "Potret Resmi • Rasio 3:4 (900 × 1200 px)",
+    image: "/images/audiensi-kenegaraan.jpg",
+    photoNote: "Ilustrasi potret kelembagaan • Rasio 3:4",
   },
   {
     name: "Ketua Umum Terpilih",
     role: "Ketua Umum (Periode 2026–2031)",
     division: "Pimpinan Eksekutif Pusat",
     bio: "Memimpin pelaksanaan mandat organisasi, representasi kelembagaan nasional, serta koordinasi seluruh pilar gerakan hasil pelantikan November 2026.",
-    photoNote: "Potret Resmi • Rasio 3:4 (900 × 1200 px)",
+    image: "/images/board-portrait.jpg",
+    photoNote: "Ilustrasi potret resmi • Rasio 3:4",
   },
   {
     name: "Sekretaris Jenderal",
     role: "Sekretaris Jenderal",
     division: "Tata Kelola & Kesekretariatan",
     bio: "Mengelola sistem administrasi organisasi, korespondensi kenegaraan, dokumentasi kelembagaan, serta sinkronisasi program lintas wilayah.",
-    photoNote: "Potret Resmi • Rasio 3:4 (900 × 1200 px)",
+    image: "/images/pelantikan-pengurus.jpg",
+    photoNote: "Ilustrasi potret pengurus • Rasio 3:4",
   },
   {
     name: "Bendahara Umum",
     role: "Bendahara Umum",
     division: "Akuntabilitas & Tata Kelola Sumber Daya",
     bio: "Menjaga transparansi pendanaan sosial, kepatuhan pelaporan, dan keberlanjutan program kemanusiaan lintas sektor.",
-    photoNote: "Potret Resmi • Rasio 3:4 (900 × 1200 px)",
+    image: "/images/pelantikan-kebersamaan.jpg",
+    photoNote: "Ilustrasi potret pengurus • Rasio 3:4",
   },
   {
     name: "Ketua Bidang I",
     role: "Ketua Bidang Dialog Lintas Agama",
     division: "Pilar Interfaith Dialogue",
     bio: "Merancang forum dialog pemuka agama, majelis kerukunan pemuda, dan inisiatif literasi toleransi di berbagai daerah.",
-    photoNote: "Potret Resmi • Rasio 3:4 (900 × 1200 px)",
+    image: "/images/dialog-lintas-iman.jpg",
+    photoNote: "Ilustrasi bidang dialog • Rasio 3:4",
   },
   {
     name: "Ketua Bidang II",
     role: "Ketua Bidang Aksi Kemanusiaan & Sosial",
     division: "Pilar Solidaritas Kemanusiaan",
     bio: "Mengoordinasikan bakti sosial, layanan kesehatan masyarakat, serta satuan tugas respons cepat kemanusiaan.",
-    photoNote: "Potret Resmi • Rasio 3:4 (900 × 1200 px)",
+    image: "/images/aksi-kemanusiaan.jpg",
+    photoNote: "Ilustrasi bidang kemanusiaan • Rasio 3:4",
   },
   {
     name: "Ketua Bidang III",
     role: "Ketua Bidang Kebangsaan & Hubungan Kelembagaan",
     division: "Pilar Persatuan & Diplomasi",
     bio: "Membina kemitraan strategis dengan lembaga negara, pemerintah daerah, organisasi kemasyarakatan, serta jejaring internasional.",
-    photoNote: "Potret Resmi • Rasio 3:4 (900 × 1200 px)",
+    image: "/images/persatuan-kebangsaan.jpg",
+    photoNote: "Ilustrasi bidang kebangsaan • Rasio 3:4",
   },
 ];
 
@@ -291,6 +303,7 @@ export interface ArticleItem {
   location: string;
   readTime: string;
   featured?: boolean;
+  image: string;
   excerpt: string;
   heroCaption: string;
   heroRatio: string;
@@ -303,6 +316,7 @@ export interface ArticleItem {
   }[];
   highlights: string[];
   galleryFrames: {
+    image: string;
     title: string;
     caption: string;
     ratio: string;
@@ -320,10 +334,11 @@ export const ARTICLES: ArticleItem[] = [
     location: "Jakarta",
     readTime: "6 Menit Baca",
     featured: true,
+    image: "/images/audiensi-kenegaraan.jpg",
     excerpt:
       "Menandai babak baru kiprah kelembagaan, jajaran pengurus Rawinala Haridra Global resmi dilantik dan melaksanakan audiensi strategis bersama Menko Polkam Jenderal (Purn.) Dudung Abdurachman guna memperkuat sinergi kerukunan nasional, dialog lintas agama, dan aksi kemanusiaan.",
     heroCaption:
-      "Momen audiensi resmi delegasi pengurus Rawinala Haridra Global bersama Menko Polkam Jenderal (Purn.) Dudung Abdurachman di Jakarta, November 2026.",
+      "Ilustrasi dokumentasi audiensi resmi delegasi pengurus Rawinala Haridra Global bersama Menko Polkam Jenderal (Purn.) Dudung Abdurachman di Jakarta, November 2026.",
     heroRatio: "16:9",
     leadParagraph:
       "Jakarta, November 2026 — Organisasi kemasyarakatan dan sosial Rawinala Haridra Global resmi mengukuhkan jajaran Dewan Pengurus periode terbaru melalui rangkaian pelantikan yang khidmat dan dilanjutkan dengan audiensi strategis bersama Menteri Koordinator Bidang Politik dan Keamanan RI, Jenderal (Purn.) Dudung Abdurachman.",
@@ -353,25 +368,28 @@ export const ARTICLES: ArticleItem[] = [
     ],
     galleryFrames: [
       {
+        image: "/images/audiensi-kenegaraan.jpg",
         title: "Foto Bersama Audiensi Menko Polkam",
         caption:
-          "Delegasi Dewan Pengurus Rawinala Haridra Global dan pendiri Fu Kwet Khiong berfoto bersama Jenderal (Purn.) Dudung Abdurachman.",
-        ratio: "16:10",
-        resolution: "1600 × 1000 px",
+          "Ilustrasi delegasi Dewan Pengurus Rawinala Haridra Global dan pendiri Fu Kwet Khiong dalam audiensi bersama Jenderal (Purn.) Dudung Abdurachman.",
+        ratio: "16:9",
+        resolution: "1600 × 900 px",
       },
       {
+        image: "/images/pelantikan-pengurus.jpg",
         title: "Prosesi Pelantikan Pengurus November 2026",
         caption:
-          "Pengucapan ikrar pengabdian dan penyematan pin kelembagaan jajaran pengurus pusat Rawinala Haridra Global.",
-        ratio: "16:10",
-        resolution: "1600 × 1000 px",
+          "Ilustrasi pengucapan ikrar pengabdian dan pengukuhan jajaran pengurus pusat Rawinala Haridra Global.",
+        ratio: "16:9",
+        resolution: "1600 × 900 px",
       },
       {
-        title: "Diskusi Strategis & Penyerahan Cenderamata",
+        image: "/images/audiensi-diskusi.jpg",
+        title: "Diskusi Strategis & Penyerahan Cetak Biru",
         caption:
-          "Suasana pemaparan program kerja dan penyerahan dokumen visi organisasi dalam sesi audiensi kenegaraan.",
-        ratio: "16:10",
-        resolution: "1600 × 1000 px",
+          "Ilustrasi suasana pemaparan program kerja dan penyerahan dokumen visi organisasi dalam sesi audiensi kenegaraan.",
+        ratio: "16:9",
+        resolution: "1600 × 900 px",
       },
     ],
   },
@@ -383,10 +401,11 @@ export const ARTICLES: ArticleItem[] = [
     date: "Oktober 2026",
     location: "Jakarta Pusat",
     readTime: "4 Menit Baca",
+    image: "/images/dialog-lintas-iman.jpg",
     excerpt:
       "Para pemuka agama, akademisi, dan tokoh pemuda lintas latar belakang berkumpul dalam forum meja bundar Rawinala Haridra Global untuk merumuskan agenda kolaborasi sosial berbasis nilai kemanusiaan universal.",
     heroCaption:
-      "Suasana forum dialog meja bundar lintas iman yang mempertemukan perwakilan tokoh agama dan cendekiawan muda.",
+      "Ilustrasi dokumentasi forum dialog meja bundar lintas iman yang mempertemukan perwakilan tokoh agama dan cendekiawan Nusantara.",
     heroRatio: "16:9",
     leadParagraph:
       "Jakarta — Rawinala Haridra Global menyelenggarakan Sarasehan Kebangsaan dan Dialog Lintas Iman bertema 'Merajut Toleransi Substantif di Tengah Dinamika Global' dengan menghadirkan para pemuka agama, cendekiawan, serta pegiat komunitas pemuda.",
@@ -408,18 +427,20 @@ export const ARTICLES: ArticleItem[] = [
     ],
     galleryFrames: [
       {
+        image: "/images/dialog-lintas-iman.jpg",
         title: "Sesi Diskusi Panel Lintas Iman",
         caption:
-          "Pemaparan pandangan kebangsaan oleh para narasumber lintas tradisi keagamaan.",
-        ratio: "16:10",
-        resolution: "1600 × 1000 px",
+          "Ilustrasi pemaparan pandangan kebangsaan oleh para narasumber lintas tradisi keagamaan.",
+        ratio: "16:9",
+        resolution: "1600 × 900 px",
       },
       {
-        title: "Foto Bersama Peserta Sarasehan",
+        image: "/images/silaturahmi-pemuda.jpg",
+        title: "Diskusi Duta Harmoni Muda",
         caption:
-          "Kebersamaan hangat seluruh delegasi setelah penutupan sarasehan.",
-        ratio: "16:10",
-        resolution: "1600 × 1000 px",
+          "Ilustrasi kebersamaan hangat delegasi pemuda lintas iman dalam forum sarasehan.",
+        ratio: "16:9",
+        resolution: "1600 × 900 px",
       },
     ],
   },
@@ -431,10 +452,11 @@ export const ARTICLES: ArticleItem[] = [
     date: "September 2026",
     location: "Jabodetabek & Jawa Barat",
     readTime: "4 Menit Baca",
+    image: "/images/aksi-kemanusiaan.jpg",
     excerpt:
       "Relawan kemanusiaan dan tim medis mitra Rawinala Haridra Global menyalurkan ribuan paket pangan bergizi sekaligus membuka layanan pemeriksaan kesehatan terpadu secara inklusif.",
     heroCaption:
-      "Relawan Rawinala Haridra Global bersama warga dalam kegiatan bakti sosial pangan dan layanan kesehatan keliling.",
+      "Ilustrasi dokumentasi relawan Rawinala Haridra Global bersama warga dalam kegiatan bakti sosial pangan dan layanan kesehatan keliling.",
     heroRatio: "16:9",
     leadParagraph:
       "Melalui pilar Aksi dan Solidaritas Kemanusiaan, Rawinala Haridra Global kembali menggelar rangkaian bakti sosial terpadu berupa distribusi paket ketahanan pangan dan pemeriksaan kesehatan gratis bagi warga lansia, pekerja sektor informal, dan keluarga prasejahtera.",
@@ -456,18 +478,20 @@ export const ARTICLES: ArticleItem[] = [
     ],
     galleryFrames: [
       {
+        image: "/images/layanan-kesehatan.jpg",
         title: "Layanan Pemeriksaan Kesehatan",
         caption:
-          "Tenaga medis relawan melayani pemeriksaan kesehatan warga lansia.",
-        ratio: "16:10",
-        resolution: "1600 × 1000 px",
+          "Ilustrasi tenaga medis relawan melayani pemeriksaan kesehatan warga lansia secara ramah dan inklusif.",
+        ratio: "16:9",
+        resolution: "1600 × 900 px",
       },
       {
+        image: "/images/aksi-kemanusiaan.jpg",
         title: "Distribusi Paket Pangan Bergizi",
         caption:
-          "Penyerahan paket ketahanan pangan secara langsung kepada keluarga penerima manfaat.",
-        ratio: "16:10",
-        resolution: "1600 × 1000 px",
+          "Ilustrasi penyerahan paket ketahanan pangan secara langsung kepada keluarga penerima manfaat.",
+        ratio: "16:9",
+        resolution: "1600 × 900 px",
       },
     ],
   },
@@ -479,10 +503,11 @@ export const ARTICLES: ArticleItem[] = [
     date: "Agustus 2026",
     location: "Jakarta",
     readTime: "5 Menit Baca",
+    image: "/images/persatuan-kebangsaan.jpg",
     excerpt:
       "Menjelang pelantikan pengurus pusat, para inisiator dan pengurus inti menyepakati standar tata kelola transparan, penguatan diplomasi kebangsaan, dan perluasan jejaring daerah.",
     heroCaption:
-      "Rapat pleno konsolidasi kelembagaan penyusunan peta jalan strategis lima tahunan organisasi.",
+      "Ilustrasi dokumentasi rapat pleno konsolidasi kelembagaan penyusunan peta jalan strategis lima tahunan organisasi.",
     heroRatio: "16:9",
     leadParagraph:
       "Sebagai persiapan menuju babak kelembagaan baru pada akhir 2026, pendiri Fu Kwet Khiong bersama jajaran perumus organisasi menggelar rapat kerja konsolidasi untuk memantapkan arah kebijakan Rawinala Haridra Global periode 2026–2031.",
@@ -504,11 +529,12 @@ export const ARTICLES: ArticleItem[] = [
     ],
     galleryFrames: [
       {
+        image: "/images/persatuan-kebangsaan.jpg",
         title: "Rapat Kerja Penyusunan Peta Jalan",
         caption:
-          "Sesi perumusan program strategis bersama pendiri dan tim perumus organisasi.",
-        ratio: "16:10",
-        resolution: "1600 × 1000 px",
+          "Ilustrasi sesi perumusan program strategis bersama pendiri dan tim perumus organisasi.",
+        ratio: "16:9",
+        resolution: "1600 × 900 px",
       },
     ],
   },
@@ -663,6 +689,7 @@ export const SYNERGY_TRACKS: SynergyTrack[] = [
 export interface GalleryItem {
   id: string;
   album: GalleryAlbum;
+  image: string;
   title: string;
   date: string;
   location: string;
@@ -684,11 +711,12 @@ export const GALLERY_ITEMS: GalleryItem[] = [
   {
     id: "gal-01",
     album: "Audiensi Menko Polkam",
+    image: "/images/audiensi-kenegaraan.jpg",
     title: "Audiensi Resmi Bersama Menko Polkam Jenderal (Purn.) Dudung Abdurachman",
     date: "November 2026",
     location: "Kemenko Polkam RI, Jakarta",
     caption:
-      "Foto resmi delegasi pengurus pusat Rawinala Haridra Global bersama Menteri Koordinator Bidang Politik dan Keamanan RI dalam sesi audiensi strategis.",
+      "Ilustrasi dokumentasi audiensi resmi delegasi pengurus pusat Rawinala Haridra Global bersama Menteri Koordinator Bidang Politik dan Keamanan RI.",
     chronology:
       "Dilaksanakan pada November 2026 di kantor Kemenko Polkam RI, Jakarta. Delegasi pengurus pusat bersama pendiri Fu Kwet Khiong diterima langsung oleh Jenderal (Purn.) Dudung Abdurachman untuk memaparkan mandat organisasi pascapelantikan sekaligus menyelaraskan program kerukunan nasional, dialog lintas agama, dan ketahanan sosial masyarakat.",
     ratio: "16:10",
@@ -698,11 +726,12 @@ export const GALLERY_ITEMS: GalleryItem[] = [
   {
     id: "gal-02",
     album: "Pelantikan Pengurus Nov 2026",
+    image: "/images/pelantikan-pengurus.jpg",
     title: "Prosesi Pengukuhan Dewan Pengurus Rawinala Haridra Global",
     date: "November 2026",
     location: "Jakarta",
     caption:
-      "Momen khidmat pelantikan jajaran Dewan Pengurus periode 2026–2031 sebagai peneguhan komitmen pelayanan kemanusiaan dan kebangsaan.",
+      "Ilustrasi dokumentasi pelantikan jajaran Dewan Pengurus periode 2026–2031 sebagai peneguhan komitmen pelayanan kemanusiaan dan kebangsaan.",
     chronology:
       "Rangkaian pelantikan resmi pada November 2026 diawali dengan pembacaan ikrar pengabdian dan penyematan pin kelembagaan bagi Ketua Umum, Sekretaris Jenderal, Bendahara Umum, serta para Ketua Bidang. Prosesi ini menandai dimulainya periode kepengurusan 2026–2031 dengan tata kelola yang transparan dan profesional.",
     ratio: "4:3",
@@ -712,11 +741,12 @@ export const GALLERY_ITEMS: GalleryItem[] = [
   {
     id: "gal-03",
     album: "Audiensi Menko Polkam",
+    image: "/images/audiensi-diskusi.jpg",
     title: "Pemaparan Visi & Tiga Pilar Gerakan oleh Pendiri Fu Kwet Khiong",
     date: "November 2026",
     location: "Kemenko Polkam RI, Jakarta",
     caption:
-      "Sesi dialog mendalam mengenai sinergi kerukunan nasional, moderasi lintas agama, dan solidaritas kemanusiaan.",
+      "Ilustrasi sesi dialog mendalam mengenai sinergi kerukunan nasional, moderasi lintas agama, dan solidaritas kemanusiaan.",
     chronology:
       "Dalam sesi inti audiensi kenegaraan, pendiri Fu Kwet Khiong menyampaikan dokumen peta jalan lima tahunan Rawinala Haridra Global yang berfokus pada tiga pilar gerakan. Diskusi berlangsung hangat dengan penekanan pada peran aktif masyarakat sipil dalam memperkuat persaudaraan bangsa.",
     ratio: "4:3",
@@ -726,11 +756,12 @@ export const GALLERY_ITEMS: GalleryItem[] = [
   {
     id: "gal-04",
     album: "Pelantikan Pengurus Nov 2026",
+    image: "/images/founder-portrait.jpg",
     title: "Sambutan Pendiri & Penyerahan Pataka Organisasi",
     date: "November 2026",
     location: "Jakarta",
     caption:
-      "Pendiri Fu Kwet Khiong menyampaikan amanat manifesto pendirian organisasi di hadapan pengurus, tokoh masyarakat, dan tamu undangan.",
+      "Ilustrasi potret pendiri Fu Kwet Khiong menyampaikan amanat manifesto pendirian organisasi di hadapan pengurus dan tamu undangan.",
     chronology:
       "Momen simbolis penyerahan pataka kelembagaan diikuti sambutan manifesto oleh Fu Kwet Khiong yang menegaskan makna Rawinala dan Haridra sebagai pelita penerang bagi kemanusiaan serta penopang kekuatan persatuan Indonesia.",
     ratio: "3:4",
@@ -740,11 +771,12 @@ export const GALLERY_ITEMS: GalleryItem[] = [
   {
     id: "gal-05",
     album: "Forum Dialog Lintas Iman",
+    image: "/images/dialog-lintas-iman.jpg",
     title: "Meja Bundar Tokoh Agama & Cendekiawan Nusantara",
     date: "Oktober 2026",
     location: "Jakarta Pusat",
     caption:
-      "Suasana dialog terbuka lintas tradisi keagamaan membahas peran masyarakat sipil dalam merawat harmoni sosial.",
+      "Ilustrasi suasana dialog terbuka lintas tradisi keagamaan membahas peran masyarakat sipil dalam merawat harmoni sosial.",
     chronology:
       "Diselenggarakan pada Oktober 2026 di Jakarta Pusat, forum meja bundar ini mempertemukan perwakilan enam tradisi keagamaan, akademisi, dan budayawan untuk merumuskan agenda kerja kemanusiaan bersama yang melampaui sekat identitas.",
     ratio: "16:10",
@@ -754,11 +786,12 @@ export const GALLERY_ITEMS: GalleryItem[] = [
   {
     id: "gal-06",
     album: "Pelantikan Pengurus Nov 2026",
+    image: "/images/pelantikan-kebersamaan.jpg",
     title: "Potret Kebersamaan Seluruh Jajaran Pengurus & Tamu Kehormatan",
     date: "November 2026",
     location: "Jakarta",
     caption:
-      "Dokumentasi resmi seluruh pengurus terlantik bersama jajaran penasihat dan mitra organisasi.",
+      "Ilustrasi dokumentasi resmi seluruh pengurus terlantik bersama jajaran penasihat dan mitra organisasi.",
     chronology:
       "Sesi foto resmi penutup rangkaian Pelantikan Pengurus November 2026 yang mengabadikan kebersamaan seluruh anggota Dewan Pembina, Dewan Pengurus Pusat, pemuka lintas agama, serta mitra strategis organisasi.",
     ratio: "16:10",
@@ -768,11 +801,12 @@ export const GALLERY_ITEMS: GalleryItem[] = [
   {
     id: "gal-07",
     album: "Forum Dialog Lintas Iman",
+    image: "/images/silaturahmi-pemuda.jpg",
     title: "Silaturahmi Pemuda Lintas Iman & Duta Harmoni",
     date: "Oktober 2026",
     location: "Jakarta",
     caption:
-      "Generasi muda lintas agama berdiskusi merancang agenda bakti sosial bersama sebagai implementasi toleransi nyata.",
+      "Ilustrasi generasi muda lintas agama berdiskusi merancang agenda bakti sosial bersama sebagai implementasi toleransi nyata.",
     chronology:
       "Bagian dari rangkaian pra-peluncuran program Duta Harmoni Muda, di mana perwakilan mahasiswa dan profesional muda lintas iman merumuskan proyek pengabdian masyarakat terpadu untuk tahun 2026–2027.",
     ratio: "4:3",
@@ -782,11 +816,12 @@ export const GALLERY_ITEMS: GalleryItem[] = [
   {
     id: "gal-08",
     album: "Audiensi Menko Polkam",
-    title: "Penyerahan Dokumen Cetak Biru & Cenderamata Kelembagaan",
+    image: "/images/persatuan-kebangsaan.jpg",
+    title: "Penyerahan Dokumen Cetak Biru & Simposium Kebangsaan",
     date: "November 2026",
     location: "Kemenko Polkam RI, Jakarta",
     caption:
-      "Simbol komitmen kemitraan strategis antara Rawinala Haridra Global dan pemerintah dalam menjaga persatuan NKRI.",
+      "Ilustrasi komitmen kemitraan strategis antara Rawinala Haridra Global dan pemerintah dalam menjaga persatuan NKRI.",
     chronology:
       "Menutup sesi audiensi strategis di Kemenko Polkam RI, delegasi Rawinala Haridra Global menyerahkan cetak biru program kebangsaan dan cenderamata resmi kepada Jenderal (Purn.) Dudung Abdurachman sebagai wujud komitmen komunikasi berkelanjutan.",
     ratio: "4:3",
@@ -796,21 +831,23 @@ export const GALLERY_ITEMS: GalleryItem[] = [
   {
     id: "gal-09",
     album: "Forum Dialog Lintas Iman",
-    title: "Kunjungan Persaudaraan ke Tokoh Masyarakat & Rumah Ibadah",
+    image: "/images/layanan-kesehatan.jpg",
+    title: "Kunjungan Persaudaraan & Bakti Kesehatan Masyarakat",
     date: "September 2026",
     location: "Jawa Barat",
     caption:
-      "Rangkaian silaturahmi pengurus dalam mempererat jalinan persaudaraan antar-komunitas di tingkat akar rumput.",
+      "Ilustrasi rangkaian silaturahmi pengurus dan layanan kesehatan warga dalam mempererat persaudaraan antar-komunitas.",
     chronology:
-      "Kunjungan lapangan di wilayah Jawa Barat pada September 2026 untuk mendengarkan aspirasi langsung para tokoh masyarakat setempat serta mengoordinasikan penyaluran bakti sosial terpadu.",
-    ratio: "3:4",
-    resolution: "900 × 1200 px",
+      "Kunjungan lapangan di wilayah Jawa Barat pada September 2026 untuk mendengarkan aspirasi langsung para tokoh masyarakat setempat serta mengoordinasikan penyaluran bakti sosial dan layanan medis terpadu.",
+    ratio: "4:3",
+    resolution: "1600 × 1200 px",
     tone: "navy",
   },
 ];
 
 export interface InstagramCard {
   id: string;
+  image: string;
   handle: string;
   accountRole: string;
   date: string;
@@ -825,6 +862,7 @@ export interface InstagramCard {
 export const INSTAGRAM_POSTS: InstagramCard[] = [
   {
     id: "ig-1",
+    image: "/images/audiensi-kenegaraan.jpg",
     handle: "@rawinalaharidraglobal",
     accountRole: "Akun Resmi Organisasi",
     date: "November 2026",
@@ -838,6 +876,7 @@ export const INSTAGRAM_POSTS: InstagramCard[] = [
   },
   {
     id: "ig-2",
+    image: "/images/pelantikan-pengurus.jpg",
     handle: "@rawinalaharidraglobal",
     accountRole: "Akun Resmi Organisasi",
     date: "November 2026",
@@ -851,6 +890,7 @@ export const INSTAGRAM_POSTS: InstagramCard[] = [
   },
   {
     id: "ig-3",
+    image: "/images/dialog-lintas-iman.jpg",
     handle: "@pengurus.rhg",
     accountRole: "Sorotan Dokumentasi Pengurus",
     date: "Oktober 2026",
@@ -864,6 +904,7 @@ export const INSTAGRAM_POSTS: InstagramCard[] = [
   },
   {
     id: "ig-4",
+    image: "/images/aksi-kemanusiaan.jpg",
     handle: "@rawinalaharidraglobal",
     accountRole: "Akun Resmi Organisasi",
     date: "September 2026",

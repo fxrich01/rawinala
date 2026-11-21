@@ -119,11 +119,12 @@ export function EditorialLightbox({
             {/* Scrollable Body */}
             <div className="overflow-y-auto p-5 sm:p-8">
               <EditorialPhotoPlaceholder
+                src={currentItem.image}
                 title={currentItem.title}
-                ratio="16:10"
-                resolution={currentItem.resolution}
+                ratio="16:9"
                 badge={`${currentItem.date} • ${currentItem.location}`}
                 tone={currentItem.tone}
+                illustrationNote="Ilustrasi dokumentasi kegiatan"
                 caption={currentItem.caption}
               />
 
